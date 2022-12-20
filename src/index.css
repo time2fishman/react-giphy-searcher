@@ -11,6 +11,23 @@
   --secondary: #ff7f50;
   --secondary-light: #ffa483;
   --white: #fff;
+  --muted: #a1a1a1;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
 }
 
 /* Remove the body margin */
@@ -97,6 +114,11 @@ the button and input when the browser is at least
 /* Add a media query to create 3 columns when the browser is 
 at least 1000px wide */
 @media (min-width: 1000px) {
+  header {
+    align-items: center;
+    flex-direction: row;
+  }
+
   .gallery {
     column-count: 3;
   }
@@ -105,6 +127,11 @@ at least 1000px wide */
 /* Add a media query to create 3 columns when the browser is 
 at least 1400px wide */
 @media (min-width: 1400px) {
+  header {
+    align-items: center;
+    flex-direction: row;
+  }
+  
   .gallery {
     column-count: 4;
   }
