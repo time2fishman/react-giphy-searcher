@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 
 function App() {
   const [images, setImages] = useState([])
+  const [searchString, setSearchString] = useState('')
   
   useEffect(() => {
     getImages()
@@ -20,7 +21,6 @@ function App() {
   };
   
   function getImages() {
-    const searchString = 'guardians'
     // Build a URL from the searchOptions object
     const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&lang=en`
 
@@ -32,10 +32,19 @@ function App() {
       .catch(console.error)
   }
 
+  function handleChange(event) {
+    setSearchString(event.target.value)
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    getImages()
+  }
+
   return (
     <div className="App">
       <h1>Giphy Searcher</h1>
-      <SearchForm />
+      <SearchForm handleChange={handleChange} handleSubmit={handleSubmit} searchString={searchString} />
       <SearchResults images={images} />
     </div>
   );
