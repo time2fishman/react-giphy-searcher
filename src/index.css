@@ -5,13 +5,21 @@
   box-sizing: border-box;
 }
 
+/* Remove the body margin */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+
 /* Create color variables */
 :root {
   --primary: #5f9ae0;
   --secondary: #ff7f50;
   --secondary-light: #ffa483;
   --white: #fff;
-  --muted: #a1a1a1;
+  --muted: #949494;
 }
 
 header {
@@ -30,12 +38,24 @@ p {
   color: var(--muted);
 }
 
-/* Remove the body margin */
-body {
-  margin: 0;
-  font-family: sans-serif;
-  line-height: 1.5;
-  padding: 0 1rem;
+.brand {
+  align-items: center;
+  display: flex;
+  /* justify-content: space-between; */
+  width: auto;
+}
+
+.brand img {
+  height: 2rem;
+  margin: 0 0.5rem 0 0;
+  width: auto;
+}
+
+.brand h1 {
+  font-weight: 200;
+  letter-spacing: -1px;
+  margin-right: 1rem;
+  white-space: nowrap;
 }
 
 /* Style the button and tell it not to grow */
@@ -51,8 +71,8 @@ button {
 }
 
 /* Add some margin to the left of any buttons that follow another button or an input */
-button + button,
-input + button {
+button+button,
+input+button {
   margin-left: 2px;
 }
 
@@ -101,8 +121,9 @@ img {
 the button and input when the browser is at least
 600px wide */
 @media (min-width: 600px) {
-  button + button,
-  input + button {
+
+  button+button,
+  input+button {
     margin-left: 1rem;
   }
 
@@ -127,15 +148,7 @@ at least 1000px wide */
 /* Add a media query to create 3 columns when the browser is 
 at least 1400px wide */
 @media (min-width: 1400px) {
-  header {
-    align-items: center;
-    flex-direction: row;
-  }
-  
   .gallery {
     column-count: 4;
   }
 }
-
-
-

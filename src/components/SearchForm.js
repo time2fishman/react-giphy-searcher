@@ -1,4 +1,4 @@
-import React from 'react';
+import { SearchIcon } from '../shared/AppIcons';
 
 const SearchForm = ({ handleSubmit, handleChange, searchString }) => {
     return (
@@ -11,7 +11,9 @@ const SearchForm = ({ handleSubmit, handleChange, searchString }) => {
                 value={searchString}
                 required
             />
-            <button type='submit'>Search</button>
+            <button type='submit'>
+                <SearchIcon height='2rem' width='2rem' />
+            </button>
         </form>
     );
 };

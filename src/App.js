@@ -8,11 +8,11 @@ function App() {
   const [images, setImages] = useState([])
   const [searchString, setSearchString] = useState('')
   const [lastSearch, setLastSearch] = useState('')
-  
+
   useEffect(() => {
     getImages(searchString)
   }, [])
-  
+
   const searchOptions = {
     key: process.env.REACT_APP_GIPHY_KEY,
     limit: 25,
@@ -21,7 +21,7 @@ function App() {
     api: 'https://api.giphy.com/v1/gifs',
     endpoint: '/search'
   };
-  
+
   function getImages(searchString) {
     // Build a URL from the searchOptions object
     const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&lang=en`

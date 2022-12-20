@@ -10,7 +10,7 @@ const SearchResults = ({ images }) => {
         <div className='gallery'>
             {images.map(image => (
                 <div key={image.id} className='gif'>
-                    <img src={image.images.downsized_large.url} alt='minion gif' />
+                    <img src={image.images.downsized_large.url} alt={image.title} />
                 </div> 
             ))}
         </div>
